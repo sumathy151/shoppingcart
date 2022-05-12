@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Error Page </title>
+<head>
+<meta charset="ISO-8859-1">
+  <meta name="viewport" content=
+        "width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap CSS library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=
+"https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity=
+"sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+  
+    <!-- jQuery library -->
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+  
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    </script>
+
+<style>
+
+div {
+    height: 200px;
+    width: 400px;
+    background: white;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+    
+<nav class="navbar navbar-expand-sm 
+  bg-info navbar-dark">
+  <h4 class="navbar-brand">Shopping zone</h4>
+ </nav>
+<th:block th:unless="${#strings.isEmpty(errMessage)}">
+<div align="center" class ="form-group form-group-sm" id="errDiv1">
+<h5 style="color:red;">[[${errMessage}]]</h5>
+<b><a th:href="@{/shoppingCart/search/}">Back to SearchPage</a></b>
+</div>
+</th:block>
+
+<th:block th:unless="${#strings.isEmpty(regErrMessage)}">
+<div align="center" class ="form-group form-group-sm" id="errDiv2">
+<h5 style="color:red;">[[${regErrMessage}]]</h5>
+<b><a th:href="@{/home}">Back to Login Page</a></b>
+
+</div>
+</th:block>
+
+<th:block th:unless="${#strings.isEmpty(loginErrMessage)}">
+<div align="center" class ="form-group form-group-sm">
+<h5 style="color:blue;">[[${loginErrMessage}]]</h5>
+<b><a th:href="@{/home}">Back to Login page..Please try again</a></b>
+</div>
+</th:block>
+
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+  <meta name="viewport" content=
+        "width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=
+"https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity=
+"sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+  
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    </script>
+ 
+
+</head>
+<body>
+  
+    <!-- Navigation Bar -->
+    
+  <nav class="navbar navbar-expand-sm 
+     bg-info navbar-dark">
+     <h4 class="navbar-brand">Shopping zone</h4>
+     
+ </nav>
+     
+   
+<div id="bookDiv" align="center" class="container mt-5" >
+<br>
+<div class="card" style="width: 35rem; "  >
+   <div class="card-header text-center bg-info ">
+    <h3>VIEW CART </h3>
+   </div>
+   <div class="card-body" >
+      <th:block th:unless="${#lists.isEmpty(cartDetails)}">
+	  <table cellpadding="2" cellspacing="2" border="1">
+	   
+	  
+		<tr>
+			<th>Option</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Update Quantity</th>
+			<th>Sub Total</th>
+		</tr>
+      <tr  th:each="cart:${cartDetails}">
+      <td><a th:href="@{/shoppingCart/items/{cartItemId}(cartItemId=${cart.cartItemId})}">
+                       Delete</a></td> 
+     <td th:text="${cart.productDetails.productId}"></td>
+     <td th:text="${cart.productDetails.productName}"></td>
+     <td th:text="${cart.productDetails.price}"></td>
+     <td th:text="${cart.quantity}"></td>
+     <td>
+      <form method=get th:object="${cartDetails}" th:action="@{/shoppingCart/item/{productId}(productId=${cart.productDetails.productId})}">
+  
+       <input class="button-update-sc" type="submit" value="Update Quantity"/>
+    
+     </form>
+     </td>
+      <td th:text="${cart.quantity*cart.productDetails.price}"></td>
+     </tr>
+     <tr>
+           <form method=delete th:action="@{/shoppingCart/allItems}">
+      		
+      		 <button class="btn btn-link"><b>Delete all from cart</b>
+    </button>
+          </form>
+          
+        
+     </tr>
+    
+	 </table>
+	      </th:block>
+	      
+	      <th:block th:if="${#lists.isEmpty(cartDetails)}">
+              <h2>There is no items in Cart</h2>
+         </th:block>
+         
+		 </div>
+		 
+		               <a th:href="@{/shoppingCart/search/}"><b>Back to SearchPage</b></a>
+		 
+  </div>
+    </body>       
+</html>

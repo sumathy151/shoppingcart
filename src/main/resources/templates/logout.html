@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Logout Page </title>
+<head>
+<meta charset="ISO-8859-1">
+  <meta name="viewport" content=
+        "width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap CSS library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=
+"https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity=
+"sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+  
+    <!-- jQuery library -->
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+  
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    </script>
+
+<style>
+
+div {
+    height: 200px;
+    width: 400px;
+    background: white;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+    
+<nav class="navbar navbar-expand-sm 
+  bg-info navbar-dark">
+  <h4 class="navbar-brand">Shopping zone</h4>
+ </nav>
+
+<div align="center" class ="form-group form-group-sm">
+<h4 style="color:blue;">Logged out</h4>
+<b><a th:href="@{/home}">Please login to shopping</a></b>
+</div>
+
+</body>
+</html>
+
